@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lista_de_compras_simples/controllers/item_controller.dart';
+import 'package:rive/rive.dart' as rive;
 
 class HomeView extends GetView<ItemController> {
   HomeView({super.key});
@@ -40,6 +41,12 @@ class HomeView extends GetView<ItemController> {
           Get.defaultDialog(
             content: Column(
               children: [
+                const SizedBox(
+                  height: 256,
+                  child: rive.RiveAnimation.asset(
+                    'animations/shopping_cart.riv',
+                  ),
+                ),
                 TextField(controller: addItemController),
                 FilledButton(
                   onPressed: () {
