@@ -58,7 +58,7 @@ class HomeView extends GetView<ItemController> {
                 const SizedBox(
                   height: 256,
                   child: rive.RiveAnimation.asset(
-                    'animations/shopping_cart.riv',
+                    'assets/animations/shopping_cart.riv',
                   ),
                 ),
                 Padding(
