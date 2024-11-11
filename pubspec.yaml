@@ -41,6 +41,7 @@ dependencies:
   get: ^4.6.6
   rive: ^0.13.15
   sqflite_common_ffi_web: ^0.4.5+3
+  flex_color_scheme: ^8.0.0
 
 dev_dependencies:
   flutter_test:

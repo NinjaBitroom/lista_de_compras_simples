@@ -42,17 +42,15 @@ class HomeView extends GetView<ItemController> {
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           Get.defaultDialog(
-            backgroundColor: context.theme.colorScheme.surfaceContainer,
             contentPadding: const EdgeInsets.all(12),
             title: 'Adicionar item',
-            confirm: FilledButton(
-              onPressed: () {
-                controller.addOne(addItemController.text);
-                Get.back();
-                addItemController.clear();
-              },
-              child: const Text('Adicionar'),
-            ),
+            textConfirm: 'Adicionar',
+            onConfirm: () {
+              controller.addOne(addItemController.text);
+              Get.back();
+              addItemController.clear();
+            },
+            textCancel: 'Cancelar',
             content: Column(
               children: [
                 const SizedBox(

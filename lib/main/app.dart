@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:lista_de_compras_simples/utils/app_theme.dart';
 import 'package:lista_de_compras_simples/views/home_view.dart';
 
 class App extends StatelessWidget {
@@ -9,8 +10,8 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData.light(),
-      darkTheme: ThemeData.dark(),
+      theme: AppTheme.light,
+      darkTheme: AppTheme.dark,
       home: HomeView(),
     );
   }
