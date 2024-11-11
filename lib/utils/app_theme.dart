@@ -13,46 +13,48 @@ import 'package:flutter/material.dart';
 /// Use in [MaterialApp] like this:
 ///
 /// MaterialApp(
-///  theme: AppTheme.light,
-///  darkTheme: AppTheme.dark,
+///  theme: AppTheme.light(),
+///  darkTheme: AppTheme.dark(),
 /// );
 sealed class AppTheme {
-  // The defined light theme.
-  static ThemeData light = FlexThemeData.light(
-    colors: FlexSchemeColor.from(primary: Colors.blue),
-    subThemesData: const FlexSubThemesData(
-      inputDecoratorIsFilled: true,
-      alignedDropdown: true,
-      tooltipRadius: 4,
-      tooltipSchemeColor: SchemeColor.inverseSurface,
-      tooltipOpacity: 0.9,
-      snackBarElevation: 6,
-      snackBarBackgroundSchemeColor: SchemeColor.inverseSurface,
-      navigationRailUseIndicator: true,
-      navigationRailLabelType: NavigationRailLabelType.all,
-    ),
-    keyColors: const FlexKeyColors(),
-    visualDensity: FlexColorScheme.comfortablePlatformDensity,
-    cupertinoOverrideTheme: const CupertinoThemeData(applyThemeToAll: true),
-  );
+  static const defaultColor = Colors.deepPurpleAccent;
 
-  // The defined dark theme.
-  static ThemeData dark = FlexThemeData.dark(
-    colors: FlexSchemeColor.from(primary: Colors.blue),
-    subThemesData: const FlexSubThemesData(
-      blendOnColors: true,
-      inputDecoratorIsFilled: true,
-      alignedDropdown: true,
-      tooltipRadius: 4,
-      tooltipSchemeColor: SchemeColor.inverseSurface,
-      tooltipOpacity: 0.9,
-      snackBarElevation: 6,
-      snackBarBackgroundSchemeColor: SchemeColor.inverseSurface,
-      navigationRailUseIndicator: true,
-      navigationRailLabelType: NavigationRailLabelType.all,
-    ),
-    keyColors: const FlexKeyColors(),
-    visualDensity: FlexColorScheme.comfortablePlatformDensity,
-    cupertinoOverrideTheme: const CupertinoThemeData(applyThemeToAll: true),
-  );
+  /// The defined light theme.
+  static ThemeData light([Color? color]) => FlexThemeData.light(
+        colors: FlexSchemeColor.from(primary: color ?? defaultColor),
+        subThemesData: const FlexSubThemesData(
+          inputDecoratorIsFilled: true,
+          alignedDropdown: true,
+          tooltipRadius: 4,
+          tooltipSchemeColor: SchemeColor.inverseSurface,
+          tooltipOpacity: 0.9,
+          snackBarElevation: 6,
+          snackBarBackgroundSchemeColor: SchemeColor.inverseSurface,
+          navigationRailUseIndicator: true,
+          navigationRailLabelType: NavigationRailLabelType.all,
+        ),
+        keyColors: const FlexKeyColors(),
+        visualDensity: FlexColorScheme.comfortablePlatformDensity,
+        cupertinoOverrideTheme: const CupertinoThemeData(applyThemeToAll: true),
+      );
+
+  /// The defined dark theme.
+  static ThemeData dark([Color? color]) => FlexThemeData.dark(
+        colors: FlexSchemeColor.from(primary: color ?? defaultColor),
+        subThemesData: const FlexSubThemesData(
+          blendOnColors: true,
+          inputDecoratorIsFilled: true,
+          alignedDropdown: true,
+          tooltipRadius: 4,
+          tooltipSchemeColor: SchemeColor.inverseSurface,
+          tooltipOpacity: 0.9,
+          snackBarElevation: 6,
+          snackBarBackgroundSchemeColor: SchemeColor.inverseSurface,
+          navigationRailUseIndicator: true,
+          navigationRailLabelType: NavigationRailLabelType.all,
+        ),
+        keyColors: const FlexKeyColors(),
+        visualDensity: FlexColorScheme.comfortablePlatformDensity,
+        cupertinoOverrideTheme: const CupertinoThemeData(applyThemeToAll: true),
+      );
 }
