@@ -7,7 +7,7 @@ import 'main/app.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await SqlService.initDatabase();
+  await Get.putAsync(() => SqlService().init());
   Get.put(ItemController());
   runApp(const App());
 }

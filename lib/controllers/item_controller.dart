@@ -6,10 +6,12 @@ import 'package:pdf/widgets.dart' as pw;
 import 'package:printing/printing.dart';
 
 class ItemController extends GetxController with StateMixin<List<ItemModel>> {
+  final SqlService _sqlService = Get.find();
+
   @override
   Future<void> onInit() async {
     super.onInit();
-    final itemsFromDb = await SqlService.getAll();
+    final itemsFromDb = await _sqlService.getAll();
     final items = itemsFromDb.map((e) => ItemModel.fromMap(e)).toList();
     if (items.isEmpty) {
       change(null, status: RxStatus.empty());
@@ -20,8 +22,8 @@ class ItemController extends GetxController with StateMixin<List<ItemModel>> {
 
   Future<void> addOne(String name) async {
     final item = ItemModel(name: name, quantity: 1, purchased: false);
-    await SqlService.addOne(item);
-    final itemsFromDb = await SqlService.getAll();
+    await _sqlService.addOne(item);
+    final itemsFromDb = await _sqlService.getAll();
     final items = itemsFromDb.map((e) => ItemModel.fromMap(e)).toList();
     change(items, status: RxStatus.success());
   }

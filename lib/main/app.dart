@@ -9,8 +9,10 @@ class App extends GetWidget {
 
   @override
   Widget build(BuildContext context) {
-    return DynamicColorBuilder(
-        builder: (ColorScheme? lightDynamic, ColorScheme? darkDynamic) {
+    return DynamicColorBuilder(builder: (
+      ColorScheme? lightDynamic,
+      ColorScheme? darkDynamic,
+    ) {
       return GetMaterialApp(
         debugShowCheckedModeBanner: false,
         theme: AppTheme.light(lightDynamic?.primary),
